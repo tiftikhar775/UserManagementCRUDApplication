@@ -1,0 +1,34 @@
+﻿@model List<UserManagementCRUDApplication.Models.DomainModels.User>
+
+@{
+    ViewData["Title"] = "View Users";
+}
+
+<h1>Manage Users</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>UserName</th>
+            <th>RealName</th>
+            <th>Email</th>
+            <th>DOB</th>
+            <th>Password</th>
+        </tr>
+    </thead>
+    <tbody>
+       @foreach(var user in Model)
+       {
+            <tr>
+                <td>@user.Id</td>
+                <td>@user.UserName</td>
+                <td>@user.RealName</td>
+                <td>@user.Email</td>
+                <td>@user.DateOfBirth.ToString("yyyy-MM-dd")</td>
+                <td>@user.Password</td>
+                <td><a href="Users/View/@user.Id">View Details</a></td>
+            </tr>
+       }
+    </tbody>
+</table>
+
